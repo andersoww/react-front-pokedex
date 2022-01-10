@@ -23,13 +23,6 @@ function App() {
     const [previous, setPrevious] = useState('');
     const [loading, setLoading] = useState(true);
 
-    const fecthAPI = async () => {
-        let data: Data = await FetchData();
-        setNext(data.next)
-        setPrevious(data.previous)
-        await GetAllPokemon(data.results)
-
-    }
     const GetAllPokemon = async (array: []) => {
         let _pokedata: any = await Promise.all(array.map(async (item: ResultsData) => {
             let dataurl = await GetURL(item.url)
@@ -39,8 +32,14 @@ function App() {
         setLoading(true);
     }
     useEffect(() => {
-        fecthAPI()
-    })
+        const fecthAPI = async () => {
+            let data: Data = await FetchData();
+            setNext(data.next)
+            setPrevious(data.previous)
+            await GetAllPokemon(data.results)
+        }
+        fecthAPI();
+    }, [])
     const handleNext = async () => {
         setLoading(false)
         const response: Data = await FetchData(next)

@@ -1,9 +1,7 @@
 import React from 'react';
 
 import './styles.scss';
-interface Button {
 
-}
 const Button = ({ next, previous }: any) => {
     return (
         <div className='container-btn'>

@@ -9,7 +9,7 @@ const PokeCard = ({ id, name, weight, sprites, types }: Pokemon) => {
     return (
         <div className={`${types[0].type.name} container-card`}>
             <div className='card-img'>
-                <img src={sprites.front_default} />
+                <img src={sprites.front_default} alt='pokemon'/>
             </div>
             <div className='container-config'>
                 <div className='card-info'>

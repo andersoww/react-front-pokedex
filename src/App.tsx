@@ -40,7 +40,7 @@ function App() {
     }
     useEffect(() => {
         fecthAPI()
-    }, [])
+    })
     const handleNext = async () => {
         setLoading(false)
         const response: Data = await FetchData(next)
